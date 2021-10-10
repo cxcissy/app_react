@@ -1,0 +1,55 @@
+.st1{
+  .st2{
+    background-color: lightskyblue;
+    color: white;
+  }
+  .st3{
+    text-align: center;
+    padding: 0 10px;
+    aside{
+      margin: 20px 0;
+    }
+    .st4{
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid gainsboro;
+      padding-top: 10px;
+      padding-bottom: 15px;
+      span{
+        width:30px;
+        height: 30px;
+        background-size: 30px 30px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        &.prev{
+          background-image: url("../img/img/prev.png");
+        }
+        &.play{
+          img{
+            width:30px;
+            height: 30px;
+          }
+        }
+        &.pause{
+          background-image: url("../img/img/pause.png");
+        }
+        &.stop{
+          background-image: url("../img/img/stop.png");
+        }
+        &.next{
+          background-image: url("../img/img/next.png");
+        }
+      }
+    }
+    .st5{
+      color: #cccccc;
+      padding-bottom: 15px;
+    }
+    .st6{
+      margin-top: 15px;
+      img{
+        border-radius: 5px;
+      }
+    }
+  }
+}

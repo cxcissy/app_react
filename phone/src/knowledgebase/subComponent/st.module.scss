@@ -1,0 +1,31 @@
+.st1{
+  overflow: auto;
+  .st2{
+    overflow: auto;
+    touch-action: none;
+    .st3{
+      align-items: center;
+      display: flex;
+      h3{
+        margin: 5px 0 10px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+      p{
+        font-size: 14px;
+        justify-content: space-between;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin: 0;
+        line-height: 25px;
+      }
+      img{
+        border-radius: 5px;
+        width: 100%;
+      }
+    }
+  }
+}

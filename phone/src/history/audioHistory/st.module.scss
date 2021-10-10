@@ -1,0 +1,19 @@
+.st1{
+  padding-top: 55px;
+  .st2{
+    padding: 5px;
+    position: fixed;
+    height: 40px;
+    top: 50px;
+    width: 100%;
+    border: 2px solid lightskyblue;
+    box-sizing: border-box;
+  }
+  .st3{
+    padding: 0 5px;
+    overflow: auto;
+    aside{
+      margin-bottom: 10px;
+    }
+  }
+}

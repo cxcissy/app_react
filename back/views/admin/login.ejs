@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/jquery-2.1.3.js"></script>
+    <!--    <script src="/js/bootstrap.min.js"></script>-->
+    <style>
+        div.panel{
+            width: 600px;
+            margin: 50px auto 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        管理员请登录
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" id="form">
+            <div class="form-group has-feedback">
+                <label class="col-sm-2 control-label">账号：</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="请输入您的账号" pattern="\w{6,8}" required name="account">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">密码：</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" pattern="\w{3,6}" required name="password"
+                           placeholder="请输入您的密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">验证码：</label>
+                <div class="col-sm-4">
+                    <input  class="form-control" pattern="\w{4}" required name="captcha">
+                </div>
+                <div class="col-sm-6" id="yzmClick">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2 col-sm-offset-2">
+                    <button type="submit" class="btn btn-default">登录</button>
+                </div>
+                <div class="col-sm-2 col-sm-offset-2">
+                    <button type="reset" class="btn btn-default">重置</button>
+                </div>
+                <div class="col-sm-2 col-sm-offset-2">
+                    <a href="/admin/register">注册</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/js/事件绑定.js"></script>
+<script>
+  let form=document.getElementById('form');
+  let yzmClick=document.getElementById('yzmClick');
+  form.onsubmit=function (e) {
+    e=e||event;
+    e.preventDefault();
+    $.post('/admin/logined',$(this).serialize(),function (rs) {
+      if (rs===1) {
+        window.location.href='/admin';
+      }else if (rs===2){
+        alert('账号或者密码有误！');
+      }else {
+        alert('验证码错误！');
+      }
+    })
+    return false;
+  }
+  function getYzm(){
+    $.getJSON('/admin/getYzm',function (rs) {
+      yzmClick.innerHTML=rs;
+    })
+  }
+  getYzm();
+  ev.agent1('yzmClick','click','svg',function (rs) {
+    getYzm();
+  })
+</script>
+</body>
+</html>
